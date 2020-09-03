@@ -5,7 +5,7 @@ export default function () {
   // render statement is not required in a simple functional component
   return (
     <div>
-      <h3>Portfolio item</h3>
+      <h3>A blog Topic</h3>
     </div>
   )
 }

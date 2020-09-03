@@ -1,20 +1,25 @@
 import React, { Component } from "react"
 
-import PortfolioItem from "./portfolio-item"
+import BlogTopics from "./blog-topics"
 
 export default class PortfolioContainer extends Component {
   constructor() {
     super()
     console.log("portoflio container has been rendered")
   }
+  blogTopics() {
+    const data = ["Education", "Mental Health", "Childrearing", "Church"]
+
+    return data.map(topic => {
+      return <h1>{topic}</h1>
+    })
+  }
+
   render() {
     return (
       <div>
         <h2>Portfolio items go here update...</h2>
-
-        <PortfolioItem />
-        <PortfolioItem />
-        <PortfolioItem />
+        {this.blogTopics()}
       </div>
     )
   }
