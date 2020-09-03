@@ -14,7 +14,7 @@ export default class NavigationComponent extends Component {
         <button>ABOUT ME</button>
         <button>MISSION STATEMENT </button>
         <button>OUR FAMILY</button>
-        <button>ADD BLOG</button>
+        {true ? <button>ADD BLOG</button> : null}
       </div>
     )
   }
