@@ -7,6 +7,7 @@ export default class PortfolioContainer extends Component {
     super()
 
     this.state = {
+      isLoading: false,
       pageTitle: "MISSION STATEMENT",
       data: [
         { title: "For Such a Time As This", category: "Education" },
@@ -35,6 +36,9 @@ export default class PortfolioContainer extends Component {
 
 
   render() {
+    if (this.state.isLoading) {
+      return <div>Loading...</div>
+    }
     return (
       <div>
         <h2>{this.state.pageTitle}</h2>
@@ -43,8 +47,8 @@ export default class PortfolioContainer extends Component {
         <button onClick={() => this.handleFilter('Mental Health')}>Mental Health</button>
         <button onClick={() => this.handleFilter('Childrearing')}>Childrearing</button>
         <button onClick={() => this.handleFilter('Church')}>Church</button>
-        {this.blogTopics()}
 
+        {this.blogTopics()}
 
       </div>
     )
