@@ -1,17 +1,18 @@
 import React, { Component } from "react"
 
-import BlogTopics from "./blog-topics"
+import BlogTopic from "./blog-topic"
 
 export default class PortfolioContainer extends Component {
   constructor() {
     super()
+
     console.log("portoflio container has been rendered")
   }
-  blogTopics() {
+  blogTopic() {
     const data = ["Education", "Mental Health", "Childrearing", "Church"]
 
     return data.map(topic => {
-      return <BlogTopics title={topic} />
+      return <BlogTopic title={topic} url={"google.com"} />
     })
   }
 
@@ -19,7 +20,7 @@ export default class PortfolioContainer extends Component {
     return (
       <div>
         <h2>Portfolio items go here update...</h2>
-        {this.blogTopics()}
+        {this.blogTopic()}
       </div>
     )
   }
