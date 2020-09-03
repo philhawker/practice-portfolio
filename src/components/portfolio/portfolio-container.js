@@ -1,26 +1,32 @@
 import React, { Component } from "react"
 
-import BlogTopic from "./blog-topic"
+import BlogTopic from "./blog-topics"
 
 export default class PortfolioContainer extends Component {
   constructor() {
     super()
 
-    console.log("portoflio container has been rendered")
+    this.state = {
+      pageTitle: "Welcome to the blog bitch",
+      data: [
+        { title: "Education" },
+        { title: "Mental Health" },
+        { title: "Childrearing" },
+        { title: "Church" }
+      ]
+    }
   }
-  blogTopic() {
-    const data = ["Education", "Mental Health", "Childrearing", "Church"]
-
-    return data.map(topic => {
-      return <BlogTopic title={topic} url={"google.com"} />
+  blogTopics() {
+    return this.state.data.map(topic => {
+      return <BlogTopic title={topic.title} url={"google.com"} />
     })
   }
 
   render() {
     return (
       <div>
-        <h2>Portfolio items go here update...</h2>
-        {this.blogTopic()}
+        <h2>{this.state.pageTitle}</h2>
+        {this.blogTopics()}
       </div>
     )
   }
