@@ -11,7 +11,7 @@ export default class PortfolioContainer extends Component {
     const data = ["Education", "Mental Health", "Childrearing", "Church"]
 
     return data.map(topic => {
-      return <h1>{topic}</h1>
+      return <BlogTopics title={topic} />
     })
   }
 
