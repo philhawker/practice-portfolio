@@ -7,7 +7,7 @@ export default class PortfolioContainer extends Component {
     super()
 
     this.state = {
-      pageTitle: "Welcome to the blog bitch",
+      pageTitle: "MISSION STATEMENT",
       data: [
         { title: "Education" },
         { title: "Mental Health" },
