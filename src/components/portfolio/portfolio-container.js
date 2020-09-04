@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-import BlogTopic from "./blog-topics"
+import BlogTopic from "./blog-topic"
 
 export default class PortfolioContainer extends Component {
   constructor() {
@@ -10,10 +10,10 @@ export default class PortfolioContainer extends Component {
       isLoading: false,
       pageTitle: "MISSION STATEMENT",
       data: [
-        { title: "For Such a Time As This", category: "Education" },
-        { title: "Learning The Healer's Art", category: "Mental Health" },
-        { title: "Praise To The Man", category: "Childrearing" },
-        { title: "Enemies, Part 7: Fear Is A Formidable Foe", category: "Church" }
+        { title: "For Such a Time As This", category: "Education", slug: 'for-such-a-time-as-this' },
+        { title: "Learning The Healers Art", category: "Mental Health", slug: 'learning-the-healers-art' },
+        { title: "Praise To The Man", category: "Childrearing", slug: 'praise-to-the-man' },
+        { title: "Enemies Part 7 Fear Is A Formidable Foe", category: "Church", slug: 'enemies-part-7-fear-is-a-formidable-foe' }
       ]
     }
 
@@ -30,7 +30,7 @@ export default class PortfolioContainer extends Component {
 
   blogTopics() {
     return this.state.data.map(topic => {
-      return <BlogTopic title={topic.title} url={"google.com"} />
+      return <BlogTopic title={topic.title} url={"google.com"} slug={topic.slug} />
     })
   }
 
