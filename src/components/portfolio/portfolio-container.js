@@ -1,15 +1,15 @@
 import React, { Component } from "react"
 import axios from 'axios'
 
-import BlogTopic from "./blog-topic"
+import PortfolioItem from "./portfolio-item"
 
 export default class PortfolioContainer extends Component {
   constructor() {
     super()
 
     this.state = {
-      isLoading: false,
       pageTitle: "MISSION STATEMENT",
+      isLoading: false,
       data: []
     }
 
@@ -19,15 +19,16 @@ export default class PortfolioContainer extends Component {
 
   handleFilter(filter) {
     this.setState({
-      data: this.state.data.filter(topic => {
-        return topic.category === filter
+      data: this.state.data.filter(item => {
+        return item.category === filter
       })
     })
   }
 
-  getBlogTopics() {
+  getPortfolioItems() {
     axios.get("https://philhawker.devcamp.space/portfolio/portfolio_items")
       .then(response => {
+        console.log("response data", response)
         this.setState({
           data: response.data.portfolio_items
         })
@@ -37,14 +38,14 @@ export default class PortfolioContainer extends Component {
       })
   }
 
-  blogTopics() {
-    return this.state.data.map(topic => {
-      return <BlogTopic title={topic.name} url={topic.url} slug={topic.id} />
+  portfolioItems() {
+    return this.state.data.map(item => {
+      return <PortfolioItem title={item.name} url={item.url} slug={item.id} />
     })
   }
 
   componentDidMount() {
-    this.getBlogTopics()
+    this.getPortfolioItems()
   }
 
 
@@ -52,9 +53,6 @@ export default class PortfolioContainer extends Component {
     if (this.state.isLoading) {
       return <div>Loading...</div>
     }
-
-    this.getBlogTopics()
-
     return (
       <div>
         <h2>{this.state.pageTitle}</h2>
@@ -64,7 +62,7 @@ export default class PortfolioContainer extends Component {
         <button onClick={() => this.handleFilter('Childrearing')}>Childrearing</button>
         <button onClick={() => this.handleFilter('Church')}>Church</button>
 
-        {this.blogTopics()}
+        {this.portfolioItems()}
 
       </div>
     )
