@@ -9,6 +9,10 @@ import PortfolioContainer from './portfolio/portfolio-container'
 import NavigationContainer from './navigation/navigation-container'
 import Home from './pages/home'
 import AboutMe from './pages/about-me'
+import Blog from './pages/blog'
+import Mission from './pages/mission'
+import OurFamily from './pages/our-family'
+import Contact from './pages/contact'
 
 export default class App extends Component {
   render() {
@@ -21,7 +25,11 @@ export default class App extends Component {
 
             <Switch>
               <Route exact path="/" component={Home} />
+              <Route path="/mission" component={Mission} />
               <Route path="/about-me" component={AboutMe} />
+              <Route path="/blog" component={Blog} />
+              <Route path="/our-family" component={OurFamily} />
+              <Route path="/contact" component={Contact} />
             </Switch>
 
           </div>

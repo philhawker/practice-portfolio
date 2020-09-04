@@ -10,18 +10,14 @@ export default class NavigationComponent extends Component {
   render() {
     return (
       <div>
-        <NavLink exact to="/">
-          HOME
-        </NavLink>
+        <NavLink exact to="/">HOME</NavLink>
+        <NavLink to="/mission">OUR MISSION</NavLink>
+        <NavLink to="/about-me">ABOUT ME</NavLink>
+        <NavLink to="/blog">BLOG</NavLink>
+        <NavLink to="/our-family">OUR FAMILY</NavLink>
+        <NavLink to="/contact">CONTACT</NavLink>
 
-        <NavLink to="/about-me">
-          ABOUT ME
-        </NavLink>
-
-        <button>BLOG</button>
-        <button>MISSION STATEMENT </button>
-        <button>OUR FAMILY</button>
-        {true ? <button>ADD BLOG</button> : null}
+        {false ? <button>ADD BLOG</button> : null}
       </div>
     )
   }
