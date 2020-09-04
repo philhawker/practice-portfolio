@@ -5,7 +5,6 @@ import {
   Route
 } from "react-router-dom"
 
-import PortfolioContainer from './portfolio/portfolio-container'
 import NavigationContainer from './navigation/navigation-container'
 import Home from './pages/home'
 import AboutMe from './pages/about-me'
@@ -21,6 +20,8 @@ export default class App extends Component {
 
         <Router>
           <div>
+            <h1>Hawker Family Blog</h1>
+            <h2>Christ | Covenants | Faith</h2>
             <NavigationContainer />
 
             <Switch>
@@ -35,9 +36,6 @@ export default class App extends Component {
           </div>
         </Router>
 
-        <h1>Hawker Family Blog</h1>
-        <h2>Christ | Covenants | Faith</h2>
-        <PortfolioContainer />
       </div>
     );
   }
