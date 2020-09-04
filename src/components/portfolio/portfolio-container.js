@@ -10,16 +10,10 @@ export default class PortfolioContainer extends Component {
     this.state = {
       isLoading: false,
       pageTitle: "MISSION STATEMENT",
-      data: [
-        { title: "For Such a Time As This", category: "Education", slug: 'for-such-a-time-as-this' },
-        { title: "Learning The Healers Art", category: "Mental Health", slug: 'learning-the-healers-art' },
-        { title: "Praise To The Man", category: "Childrearing", slug: 'praise-to-the-man' },
-        { title: "Enemies Part 7 Fear Is A Formidable Foe", category: "Church", slug: 'enemies-part-7-fear-is-a-formidable-foe' }
-      ]
+      data: []
     }
 
     this.handleFilter = this.handleFilter.bind(this)
-    this.getPortfolioItems = this.getPortfolioItems.bind(this)
 
   }
 
@@ -31,10 +25,12 @@ export default class PortfolioContainer extends Component {
     })
   }
 
-  getPortfolioItems() {
+  getBlogTopics() {
     axios.get("https://philhawker.devcamp.space/portfolio/portfolio_items")
       .then(response => {
-        console.log("response data", response);
+        this.setState({
+          data: response.data.portfolio_items
+        })
       })
       .catch(error => {
         console.log(error);
@@ -43,8 +39,12 @@ export default class PortfolioContainer extends Component {
 
   blogTopics() {
     return this.state.data.map(topic => {
-      return <BlogTopic title={topic.title} url={"google.com"} slug={topic.slug} />
+      return <BlogTopic title={topic.name} url={topic.url} slug={topic.id} />
     })
+  }
+
+  componentDidMount() {
+    this.getBlogTopics()
   }
 
 
@@ -53,7 +53,7 @@ export default class PortfolioContainer extends Component {
       return <div>Loading...</div>
     }
 
-    this.getPortfolioItems()
+    this.getBlogTopics()
 
     return (
       <div>
